@@ -42,10 +42,9 @@ wrapper=html.DIV("",id="wrap")
 def br(doc=wrapper):
     doc <= html.BR()
 
-
-wrapper <= "Hello !"
-br()
-wrapper <= html.B(html.I("Hello !") + " world !")
+title=html.CENTER()
+title<=html.B(html.I("Hello !") + " world !")
+wrapper <= title
 br()
 br()
 PythonConsole_=html.CENTER()
