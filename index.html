@@ -8,6 +8,10 @@
     <script src="https://cdn.jsdelivr.net/npm/brython@3.8.10/brython.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/brython@3.8.10/brython_stdlib.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#000">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" type="text/css" href="css/addtohomescreen.css">
     <style>
 *{
     font-family: sans-serif;
@@ -36,6 +40,7 @@ td,#schnuckel,body{
     text-align: right;
 }
 </style>
+  <script src="addtohomescreen.min.js" type="text/javascript"></script>
 </head>
 
 <body onload="brython()">
@@ -112,8 +117,60 @@ def openPythonConsole(event):
 
 document["schnuckel"].bind("click",openPythonConsole)
 </script>
+<!--
+<img src="https://cdn.glitch.com/ab32e95c-829a-4087-a8b6-6fbec2987176%2Fandroid-icon-72x72.png?v=1600112810528">
+-->
+  <script>
+      /*
+        register the service worker
+    */
+    if ( 'serviceWorker' in navigator ) {
 
+      navigator.serviceWorker.register( '/sw.js' )
+        .then( function ( registration ) {
+          // Registration was successful
 
+          addToHomescreen( {
+            autostart: true,
+            autoHide: 0,
+            logging: true,
+            minSessions: 2,
+            onShow: function () {
+              console.log( "showing" );
+            },
+            onInit: function () {
+              console.log( "initializing" );
+            },
+            onAdd: function () {
+              console.log( "adding" );
+            },
+            onInstall: function () {
+              console.log( "Installing" );
+            },
+            onCancel: function () {
+              console.log( "Cancelling" );
+            },
+            displayNextPrime: true,
+            customCriteria: true,
+            displayPace: 0,
+            customPrompt: {
+              title: "Install calc PWA Brython?",
+              src: "https://cdn.glitch.com/ab32e95c-829a-4087-a8b6-6fbec2987176%2Fandroid-icon-144x144.png?v=1600113438131"
+            }
+          } );
+
+          console.log( 'ServiceWorker registration successful with scope: ',
+            registration.scope );
+
+        } ).catch( function ( err ) {
+          // registration failed :(
+
+          console.log( 'ServiceWorker registration failed: ', err );
+        } );
+
+    }
+
+  </script>
 </body>
 
 </html>
