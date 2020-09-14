@@ -1,0 +1,29 @@
+{
+  "name": "calc PWA Brython",
+  "short_name": "calc",
+  "icons": [
+    {
+      "src": "https://cdn.glitch.com/ab32e95c-829a-4087-a8b6-6fbec2987176%2Fandroid-icon-72x72.png?v=1600112810528",
+      "sizes": "72x72"
+    },
+    {
+      "src": "https://cdn.glitch.com/ab32e95c-829a-4087-a8b6-6fbec2987176%2Fandroid-icon-144x144.png?v=1600113438131",
+      "sizes": "144x144"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000",
+  "theme_color": "#f5f"
+}
+
+
+
+
+
+
+
+
+
+
+
