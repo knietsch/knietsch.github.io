@@ -90,6 +90,7 @@ def action(event):
     # The element the user clicked on is the attribute "target" of the
     # event object
     element = event.target
+    print(event,element)
     # The text printed on the button is the element's "text" attribute
     value = element.text
     if value not in "=C":
